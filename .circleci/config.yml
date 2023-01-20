@@ -63,7 +63,7 @@ jobs:
 
   roll_back:
     docker:
-      - image: amazo/aws-cli
+      - image: amazon/aws-cli
     steps:
       - checkout
       - run:
