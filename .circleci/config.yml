@@ -68,7 +68,7 @@ jobs:
       - checkout
       - run:
           name: Simulate error
-          command: exit 1
+          command: exit 0
       - destroy_environment
         # when: on_fail;
 
