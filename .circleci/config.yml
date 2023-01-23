@@ -69,7 +69,7 @@ jobs:
       - checkout
       - run:
           name: Simulate error
-          command: exit 0
+          command: exit 1
       - destroy_environment
         # when: on_fail;
 
@@ -79,6 +79,6 @@ workflows:
   my_workflow:
       jobs:
         - create_infrastructure
-        # - configure_infrastructure
-        # - smoke_test
-        - roll_back
+        - configure_infrastructure
+        - smoke_test
+        # - roll_back
