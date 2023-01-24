@@ -53,7 +53,7 @@ jobs:
       - run:
           name: smoke test
           command: |
-            URL="https://bloggg.udacity.com/"
+            URL="https://blog.udacity.com/"
             # Test if website exists
             if curl -s --head ${URL} 
             then
@@ -61,7 +61,6 @@ jobs:
             else
               return 1
             fi
-      - destroy_environment
 
   roll_back:
     docker:
@@ -80,5 +79,5 @@ workflows:
       jobs:
         # - create_infrastructure
         # - configure_infrastructure
-        - smoke_test
-        # - roll_back
+        # - smoke_test
+        - roll_back
