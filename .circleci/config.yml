@@ -53,7 +53,7 @@ jobs:
       - run:
           name: smoke test
           command: |
-            URL="https://blog.udacity.com/"
+            URL="https://bloggg.udacity.com/"
             # Test if website exists
             if curl -s --head ${URL} 
             then
@@ -61,6 +61,7 @@ jobs:
             else
               return 1
             fi
+      - destroy_environment
 
   roll_back:
     docker:
@@ -69,9 +70,8 @@ jobs:
       - checkout
       - run:
           name: Simulate error
-          command: exit 1
-      - destroy_environment:
-          when: on_fail;
+          command: exit 0
+      - destroy_environment
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -80,5 +80,5 @@ workflows:
       jobs:
         # - create_infrastructure
         # - configure_infrastructure
-        # - smoke_test
-        - roll_back
+        - smoke_test
+        # - roll_back
