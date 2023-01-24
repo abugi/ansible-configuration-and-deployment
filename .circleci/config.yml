@@ -103,6 +103,7 @@ jobs:
           command: |
             aws cloudformation \
             list-exports --query "Exports[?Name==\`PipelineID\`].Value" \
+            --region us-east-1 \
             --no-paginate --output text > ~/textfile.txt
       - persist_to_workspace:
           root: ~/
